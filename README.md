@@ -94,8 +94,11 @@ To perform admin actions such as creating, updating, or deleting tasks, ensure t
 To test the application using Thunder Client:
 
 1. Register user as admin
+   <ul>
    <li>URL: POST /register</li>
    <li>Body</li>
+   </ul>
+  
    
    ```
    {
@@ -108,9 +111,12 @@ To test the application using Thunder Client:
    }
    
    ```
-2.   Login
-     <li> URL: POST /login </li>
-     <li>Body</li>
+3.   Login
+      <ul>
+      <li> URL: POST /login </li>
+      <li>Body</li>
+      </ul>
+     
      
      ```
      {
@@ -119,10 +125,13 @@ To test the application using Thunder Client:
      }
      ```
 
-3.   Create a Task (Admin Only):
-      <li>URL: POST /task</li>
-      <li>Headers: Authorization: Bearer 'your_jwt_token'</li>
-      <li>Body (form-data):</li>
+5.   Create a Task (Admin Only):
+      <ul>
+         <li>URL: POST /task</li>
+         <li>Headers: Authorization: Bearer 'your_jwt_token'</li>
+         <li>Body (form-data):</li>
+      </ul>
+      
       
       ```
       type: "task_type"
@@ -136,14 +145,18 @@ To test the application using Thunder Client:
       image: <upload_file>
 
       ```
-4.   Logout
-      <li>URL: GET /logout</li>  
+7.   Logout
+      <ul>
+          <li>URL: GET /logout</li>  
+      </ul>
+     
    
       This will clear the session and the JWT token cookie, effectively logging the user out.
 <hr>
 <h2>Testing Password Reset</h2>
 
 1.   Forgot Password:
+   
       <li>URL: POST /forgot</li>
       <li>Body:</li>
       
@@ -153,7 +166,8 @@ To test the application using Thunder Client:
       }
 
       ```
-2.   Reset Password:
+3.   Reset Password:
+   
       <li>URL: POST /reset/:token</li>
       <li>Body:</li>
 
@@ -203,7 +217,7 @@ Token blacklist is used to invalidate tokens upon logout.
 
 Dependencies
  "dependencies": {
-``
+
     "bcrypt": "^5.1.1",</br>
     "body-parser": "^1.20.2",</br>
     "cookie-parser": "^1.4.6",</br>
@@ -230,7 +244,7 @@ Contributing
 Contributions are welcome! Please follow the contributing guidelines.
 
 ![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)
-License
 
+License
 This project is licensed under the ISC License.
 

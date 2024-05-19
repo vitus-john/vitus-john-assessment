@@ -4,18 +4,18 @@
 
 <i>Installation</i>
 
-<Usage
+<i>Usage</i>
 
-Routes
+<i>Routes</i>
 
-Authentication
+<i>Authentication</i>
 
-Dependencies
+<i>Dependencies</i>
 
-Contributing
+<i>Contributing</i>
 
-License
-
+<i>License</i>
+<hr>
 git clone https://github.com/vitus-john/vitus-john-assessment.git
 
 cd project-directory

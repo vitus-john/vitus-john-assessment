@@ -61,15 +61,32 @@ Sessions are managed using Express sessions and cookies.
 Admin authentication is enforced using middleware (checkAdmin).
 
 Token blacklist is used to invalidate tokens upon logout.
+<hr>
 
 Dependencies
-Express: ^version
-Mongoose: ^version
-bcrypt: ^version
-jwt: ^version
-nodemailer: ^version
-multer: ^version
-Other dependencies...
+ "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "express-validation": "^4.1.0",
+    "express-validator": "^7.0.1",
+    "fs": "^0.0.1-security",
+    "googleapis": "^134.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.5.0",
+    "mongoose": "^8.3.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.13",
+    "nodemon": "^3.1.0",
+    "npm": "^10.5.1",
+    "path": "^0.12.7",
+  },
+  <hr>
 Contributing
 Contributions are welcome! Please follow the contributing guidelines.
 

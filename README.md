@@ -85,10 +85,10 @@ REFRESH_TOKEN=your_google_refresh_token
 To access protected routes, include the JWT token in the Authorization header as a Bearer token or ensure the cookie is included in your requests.
 6. Admin Routes:
 
-   To perform admin actions such as creating, updating, or deleting tasks, ensure the user is logged in as an admin. Only users with the role admin can access these routes.
+   To perform admin actions such as creating, updating, or deleting tasks, ensure the user is logged in as an admin. Only users with the role admin can access these      routes.
 7. Admin Routes:
 
-To perform admin actions such as creating, updating, or deleting tasks, ensure the user is logged in as an admin. Only users with the role admin can access these routes.
+   To perform admin actions such as creating, updating, or deleting tasks, ensure the user is logged in as an admin. Only users with the role admin can access these routes.
 <hr>
 <h2>Example of Using Thunder Client</h2>
 To test the application using Thunder Client:
@@ -157,8 +157,11 @@ To test the application using Thunder Client:
 
 1.   Forgot Password:
    
-      <li>URL: POST /forgot</li>
-      <li>Body:</li>
+      <ul>
+         <li>URL: POST /forgot</li>
+         <li>Body:</li>
+      </ul>
+      
       
       ```
       {
@@ -167,9 +170,11 @@ To test the application using Thunder Client:
 
       ```
 3.   Reset Password:
-   
-      <li>URL: POST /reset/:token</li>
-      <li>Body:</li>
+      <ul>
+         <li>URL: POST /reset/:token</li>
+         <li>Body:</li>
+      </ul>
+      
 
       ```
       {

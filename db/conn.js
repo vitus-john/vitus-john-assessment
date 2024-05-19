@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://127.0.0.1:27017/", {
+mongoose.connect("mongodb+srv://vercel-admin-user:1Kbd1HXXyFZyVz5j@cluster0.szqexgz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(() => {

@@ -47,6 +47,7 @@ app.use('/', router)
 app.get('/register', async(req, res) => {
     try {
         const task = await TaskUser.find({});
+        // Send the sanitized user data as JSON response
         res.status(200).json(task);
       } catch (error) {
         res.status(500).json({ message: error.message });
@@ -56,6 +57,7 @@ app.get('/register', async(req, res) => {
 app.get('/login', async(req, res) => {
   try {
       const task = await TaskUser.find({});
+      // Send the sanitized user data as JSON response
       res.status(200).json(task);
     } catch (error) {
       res.status(500).json({ message: error.message });
@@ -89,6 +91,7 @@ app.post(
             username: req.body.username,
             password: await bcrypt.hash(req.body.password, salt),
             password2: await bcrypt.hash(req.body.password2, salt),
+            role: req.body.role || 'user' // Set role, default to 'user'
         });
     
         await newUser.save();
@@ -101,20 +104,11 @@ app.post(
             email: newUser.email,
             password: newUser.password,
             password2: newUser.password2,
+            role: newUser.role,
             createdAt: newUser.createdAt.toISOString(), // Convert date to ISO string
           };
 
-           const payload = { user: { id: newUser._id.toString() } };
-            const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1d' });
-            const cookieOptions = {
-              httpOnly: true,
-              secure: true, // Change to 'false' for development (not recommended)
-              signed: true, // Enable cookie signing for security
-              sameSite: 'strict'
-            };
-
-            res.cookie('access_token', token, cookieOptions);
-            console.log(token)
+          // Send sanitized user data as JSON response
             res.status(201).json(sanitizedUser);
             
             
@@ -138,7 +132,7 @@ app.get("/login", (req, res) => {
                 } else {
 
                 }
-
+                // Send the sanitized user data as JSON response
                 res.send(TaskUser)
             });
     } else {
@@ -149,57 +143,49 @@ app.get("/login", (req, res) => {
     }
     
 })
+
 app.post('/login', async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({ errors: errors.array() });
   }
 
   try {
-    const user = await TaskUser.findOne({ email: req.body.email });
-    if (!user) {
-      return res.status(404).json({ message: 'User does not exist.' });
-    }
+      const user = await TaskUser.findOne({ email: req.body.email });
+      if (!user) {
+          return res.status(404).json({ message: 'User does not exist.' });
+      }
 
-    const cmp = await bcrypt.compare(req.body.password, user.password);
-    if (!cmp) {
-      return res.status(401).json({ message: 'Wrong username or password.' });
-    }
+      const cmp = await bcrypt.compare(req.body.password, user.password);
+      if (!cmp) {
+          return res.status(401).json({ message: 'Wrong username or password.' });
+      }
 
-    if (cmp) {
-      req.session.userId = user._id;
-    }
+      const payload = { user: { id: user._id.toString(), role: user.role } };
+      const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '10d' });
 
-    // Create the payload (exclude sensitive data)
-    const payload = { user: { id: user._id.toString() } };
+      const cookieOptions = {
+          httpOnly: true,
+          secure: process.env.NODE_ENV === 'production', // Secure flag for HTTPS
+          signed: true,
+          maxAge: 10 * 24 * 60 * 60 * 1000 // 10 days
+      };
 
-    // Sign the payload
-    const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '10d' });
+      res.cookie('access_token', token, cookieOptions);
 
-    // Set cookie options (secure for HTTPS, httpOnly to prevent client-side access)
-    const cookieOptions = {
-      httpOnly: true,
-      secure: true, // Change to 'false' for development (not recommended)
-      signed: true, // Enable cookie signing for security
-    };
+      const sanitizedUser = {
+          _id: user._id.toString(),
+          email: user.email,
+          createdAt: user.createdAt.toISOString(),
+      };
 
-    // Set the access token cookie before sending the response
-    res.cookie('access_token', token, cookieOptions);
-
-    // Prepare sanitized user data (exclude password)
-    const sanitizedUser = {
-      _id: user._id.toString(),
-      email: user.email,
-      password: user.password,
-      createdAt: user.createdAt.toISOString(),
-    };
-
-    // Send the sanitized user data as JSON response
-    res.status(200).json(sanitizedUser);
+      res.status(200).json(sanitizedUser);
   } catch (err) {
-    res.status(500).json({ message: err.message });
+      res.status(500).json({ message: err.message });
   }
 });
+
+
 
   
 
@@ -218,6 +204,9 @@ app.get("/logout", (req, res) => {
   // Send a success response indicating logout
   res.status(200).json({ message: "Logout successful" });
 });
+
+//forgot password//
+//If neccessary//
 
 app.post('/forgot', async(req, res) => {
   const CLIENT_ID = process.env.CLIENT_ID;

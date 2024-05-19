@@ -44,7 +44,13 @@ const TaskUserSchema = mongoose.Schema({
     createdAt: {
         type: Date,
         default: Date.now()
-    } 
+    },
+
+    role: { // Add a field for user role
+        type: String,
+        enum: ['admin', 'user'], // Define allowed roles
+        default: 'user'
+    }
 
 });
 

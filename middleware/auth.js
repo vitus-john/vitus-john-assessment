@@ -1,20 +1,21 @@
-const jwt = require("jsonwebtoken");
-const cookieParser = require("cookie-parser");
+const jwt = require('jsonwebtoken');
 
-module.exports = function(req, res, next) {
-    const token = req.cookies.access_token;
+const authenticateToken = (req, res, next) => {
+    const token = req.signedCookies.access_token;
     if (!token) {
-        return res.status(401).json('No token found');
+        console.log('No token provided');
+        return res.status(401).json({ message: 'Access denied. No token provided.' });
     }
 
-    jwt.verify(token, process.env.JWT_SECRET, (err, payload) => {
-        if (err) {
-            return res.status(403).json('Invalid Token');
-        }
-        req.user = {
-            id: payload.id
-        }
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        req.user = decoded.user;
+        console.log('User authenticated:', req.user);
         next();
-    })
-
+    } catch (err) {
+        console.log('Invalid token:', err);
+        res.status(400).json({ message: 'Invalid token' });
+    }
 };
+
+module.exports = authenticateToken;

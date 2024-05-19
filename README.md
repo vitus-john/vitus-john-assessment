@@ -92,6 +92,7 @@ To perform admin actions such as creating, updating, or deleting tasks, ensure t
 <hr>
 <h2>Example of Using Thunder Client</h2>
 To test the application using Thunder Client:
+
 1. Register user as admin
    <li>URL: POST /register</li>
    <li>Body</li>
@@ -140,8 +141,31 @@ To test the application using Thunder Client:
    
       This will clear the session and the JWT token cookie, effectively logging the user out.
 <hr>
+<h2>Testing Password Reset</h2>
 
+1.   Forgot Password:
+      <li>URL: POST /forgot</li>
+      <li>Body:</li>
+      
+      ```
+      {
+     "email": "john@example.com"
+      }
 
+      ```
+2.   Reset Password:
+      <li>URL: POST /reset/:token</li>
+      <li>Body:</li>
+
+      ```
+      {
+        "password": "newpassword",
+        "confirm": "newpassword"
+      }
+
+      ```
+
+<hr>
 <h2>Routes</h2>
 
 Task Routes

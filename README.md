@@ -17,7 +17,9 @@
 <i>License</i>
 <hr>
 
- ```markdown
+[![GitHub stars](https://img.shields.io/github/stars/username/repo.svg?style=social)
+```markdown
+
 git clone  https://github.com/vitus-john/vitus-john-assessment.git
 ```
 
@@ -65,7 +67,7 @@ Token blacklist is used to invalidate tokens upon logout.
 
 Dependencies
  "dependencies": {
-    "bcrypt": "^5.1.1",
+    "bcrypt": "^5.1.1",<
     "body-parser": "^1.20.2",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",

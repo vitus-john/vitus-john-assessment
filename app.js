@@ -162,13 +162,13 @@ app.post('/login', async (req, res) => {
       }
 
       const payload = { user: { id: user._id.toString(), role: user.role } };
-      const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '10d' });
+      const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1d' });
 
       const cookieOptions = {
           httpOnly: true,
           secure: process.env.NODE_ENV === 'production', // Secure flag for HTTPS
           signed: true,
-          maxAge: 10 * 24 * 60 * 60 * 1000 // 10 days
+          maxAge: 24 * 60 * 60 * 1000 // 1 days
       };
 
       res.cookie('access_token', token, cookieOptions);

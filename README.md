@@ -1,10 +1,10 @@
-Project Title: vitus john's niyo group assessment
+<h1> Vitus John's Niyo Group Assessment</h1>
 
-*Table of Contents*
+<h1>Table of Contents</h1>
 
-Installation
+<i>Installation</i>
 
-Usage.
+<Usage
 
 Routes
 

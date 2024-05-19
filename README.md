@@ -16,11 +16,17 @@
 
 <i>License</i>
 <hr>
-git clone https://github.com/vitus-john/vitus-john-assessment.git
 
+ ```markdown
+git clone  https://github.com/vitus-john/vitus-john-assessment.git
+```
+
+```
 cd project-directory
 
 npm install
+```
+<hr>
 
 Routes
 

@@ -28,7 +28,7 @@ npm install
 ```
 <hr>
 
-Routes
+<h2>Routes</h2>
 
 Task Routes
 
@@ -41,6 +41,7 @@ POST /task: Creates a new task (Admin only).
 POST /task/:id: Updates a task by ID (Admin only).
 
 DELETE /task/:id: Deletes a task by ID (Admin only).
+<hr>
 
 Authentication Routes
 
@@ -49,6 +50,7 @@ POST /register: Registers a new user.
 POST /login: Logs in an existing user.
 
 GET /logout: Logs out the current user.
+<hr>
 
 Authentication
 

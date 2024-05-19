@@ -247,7 +247,7 @@ Dependencies
   <hr>
 Contributing
 Contributions are welcome! Please follow the contributing guidelines.
-
+<hr>
 
 ![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)
 

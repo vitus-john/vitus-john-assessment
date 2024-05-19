@@ -28,6 +28,8 @@ cd project-directory
 npm install
 ```
 <hr>
+<h2>Usage</h2>
+
 
 <h2>Routes</h2>
 
@@ -92,7 +94,7 @@ Contributing
 Contributions are welcome! Please follow the contributing guidelines.
 
 ![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)
-
 License
+
 This project is licensed under the ISC License.
 

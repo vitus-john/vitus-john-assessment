@@ -48,39 +48,39 @@ REFRESH_TOKEN=your_google_refresh_token
    ```
 2. Register a User:
 
-To register a user, send a POST request to /register with the following JSON body:
-```
-{
-  "firstname": "John",
-  "lastname": "Doe",
-  "username": "johndoe",
-  "email": "john@example.com",
-  "password": "yourpassword",
-  "password2": "yourpassword"
-}
-```
+   To register a user, send a POST request to /register with the following JSON body:
+   ```
+   {
+     "firstname": "John",
+     "lastname": "Doe",
+     "username": "johndoe",
+     "email": "john@example.com",
+     "password": "yourpassword",
+     "password2": "yourpassword"
+   }
+   ```
 3. Register an admin
-To register a admin, send a POST request to /register with the following JSON body:
-```
-{
-  "firstname": "John",
-  "lastname": "Doe",
-  "username": "johndoe",
-  "email": "john@example.com",
-  "password": "yourpassword",
-  "password2": "yourpassword",
-  "role": admin"
-}
-```
+   To register a admin, send a POST request to /register with the following JSON body:
+   ```
+   {
+     "firstname": "John",
+     "lastname": "Doe",
+     "username": "johndoe",
+     "email": "john@example.com",
+     "password": "yourpassword",
+     "password2": "yourpassword",
+     "role": admin"
+   }
+   ```
 4. Login:
 
-To log in, send a POST request to /login with the following JSON body:
-```
-{
-  "email": "john@example.com",
-  "password": "yourpassword"
-}
-```
+   To log in, send a POST request to /login with the following JSON body:
+   ```
+   {
+     "email": "john@example.com",
+     "password": "yourpassword"
+   }
+   ```
 5. Accessing Protected Routes:
 To access protected routes, include the JWT token in the Authorization header as a Bearer token or ensure the cookie is included in your requests.
 6. Admin Routes:
@@ -90,11 +90,23 @@ To perform admin actions such as creating, updating, or deleting tasks, ensure t
 
 To perform admin actions such as creating, updating, or deleting tasks, ensure the user is logged in as an admin. Only users with the role admin can access these routes.
 <hr>
-<h2></h2>Example of Using Thunder Client</h2>
+<h2>Example of Using Thunder Client</h2>
 To test the application using Thunder Client:
 1. Register user as admin
-<li>URL: POST /register</li>
-
+   <li>URL: POST /register</li>
+   <li>Body</li>
+   
+   ```
+   {
+     "firstname": "Admin",
+     "lastname": "User",
+     "username": "adminuser",
+     "email": "admin@example.com",
+     "password": "adminpassword",
+     "password2": "adminpassword"
+   }
+   
+   ```
 
 <h2>Routes</h2>
 

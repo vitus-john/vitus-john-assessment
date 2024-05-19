@@ -17,7 +17,7 @@
 <i>License</i>
 <hr>
 
-[![GitHub stars](https://img.shields.io/github/stars/username/repo.svg?style=social)
+[GitHub stars](https://img.shields.io/github/stars/username/repo.svg?style=social)
 ```markdown
 
 git clone  https://github.com/vitus-john/vitus-john-assessment.git

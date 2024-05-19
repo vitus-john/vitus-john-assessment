@@ -137,7 +137,10 @@ To test the application using Thunder Client:
       ```
 4.   Logout
       <li>URL: GET /logout</li>  
+   
       This will clear the session and the JWT token cookie, effectively logging the user out.
+<hr>
+
 
 <h2>Routes</h2>
 

@@ -29,6 +29,20 @@ npm install
 ```
 <hr>
 <h2>Usage</h2>
+Environment Variables
+Create a .env file in the root of your project and add the following environment variables:
+
+```
+PORT=3000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+CLIENT_ID=your_google_client_id
+CLIENT_SECRET=your_google_client_secret
+REDIRECT_URL=your_google_redirect_url
+REFRESH_TOKEN=your_google_refresh_token
+
+```
+
 
 
 <h2>Routes</h2>
@@ -68,6 +82,7 @@ Token blacklist is used to invalidate tokens upon logout.
 
 Dependencies
  "dependencies": {
+``
     "bcrypt": "^5.1.1",</br>
     "body-parser": "^1.20.2",</br>
     "cookie-parser": "^1.4.6",</br>

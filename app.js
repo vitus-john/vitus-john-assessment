@@ -190,20 +190,27 @@ app.post('/login', async (req, res) => {
   
 
 app.get("/logout", (req, res) => {
-  req.session.user = null; // Set session user to null
-  req.session.destroy(); // Destroy session data
+  const token = req.cookies.access_token;
+  const tokenBlacklist = new Set();
 
-  // Clear the access token cookie using matching options
+  if (token) {
+      // Add the token to the blacklist
+      tokenBlacklist.add(token);
+  }
+
+  req.session.user = null;
+  req.session.destroy();
+
   res.clearCookie("access_token", {
-    httpOnly: true,
-    sameSite: "strict",
-    signed: true,
-    secure: true,
+      httpOnly: true,
+      sameSite: "strict",
+      signed: true,
+      secure: true,
   });
 
-  // Send a success response indicating logout
   res.status(200).json({ message: "Logout successful" });
 });
+
 
 //forgot password//
 //If neccessary//

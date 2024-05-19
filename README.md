@@ -17,7 +17,6 @@
 <i>License</i>
 <hr>
 
-[GitHub stars](https://img.shields.io/github/stars/username/repo.svg?style=social)
 ```markdown
 
 git clone  https://github.com/vitus-john/vitus-john-assessment.git
@@ -67,30 +66,32 @@ Token blacklist is used to invalidate tokens upon logout.
 
 Dependencies
  "dependencies": {
-    "bcrypt": "^5.1.1",<
-    "body-parser": "^1.20.2",
-    "cookie-parser": "^1.4.6",
-    "cors": "^2.8.5",
-    "crypto": "^1.0.1",
-    "dotenv": "^16.4.5",
-    "express": "^4.19.2",
-    "express-session": "^1.18.0",
-    "express-validation": "^4.1.0",
-    "express-validator": "^7.0.1",
-    "fs": "^0.0.1-security",
-    "googleapis": "^134.0.0",
-    "jsonwebtoken": "^9.0.2",
-    "mongodb": "^6.5.0",
-    "mongoose": "^8.3.0",
-    "multer": "^1.4.5-lts.1",
-    "nodemailer": "^6.9.13",
-    "nodemon": "^3.1.0",
-    "npm": "^10.5.1",
+    "bcrypt": "^5.1.1",</br>
+    "body-parser": "^1.20.2",</br>
+    "cookie-parser": "^1.4.6",</br>
+    "cors": "^2.8.5",</br>
+    "crypto": "^1.0.1",</br>
+    "dotenv": "^16.4.5",</br>
+    "express": "^4.19.2",</br>
+    "express-session": "^1.18.0",</br>
+    "express-validation": "^4.1.0",</br>
+    "express-validator": "^7.0.1",</br>
+    "fs": "^0.0.1-security",</br>
+    "googleapis": "^134.0.0",</br>
+    "jsonwebtoken": "^9.0.2",</br>
+    "mongodb": "^6.5.0",</br>
+    "mongoose": "^8.3.0",</br>
+    "multer": "^1.4.5-lts.1",</br>
+    "nodemailer": "^6.9.13",</br>
+    "nodemon": "^3.1.0",</br>
+    "npm": "^10.5.1",</br>
     "path": "^0.12.7",
   },
   <hr>
 Contributing
 Contributions are welcome! Please follow the contributing guidelines.
+
+![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)
 
 License
 This project is licensed under the ISC License.
